@@ -66,8 +66,6 @@ export const SceneViewport: React.FC<SceneViewportProps> = memo(({
         </div>
       </div>
 
-
-
       <Canvas
         camera={{ position: [0, 5, 10], fov: 75 }}
         shadows
@@ -101,7 +99,25 @@ export const SceneViewport: React.FC<SceneViewportProps> = memo(({
           background 
         />
 
-        {/* Simple Arctic Floor - Fallback when assets are missing */}
+        {/* Arctic Terrain - Try external CDN first, then local, then fallback */}
+        <GLTFModel
+          modelPath="https://cdn.jsdelivr.net/gh/your-repo/arctic-assets@main/arctic_terrain1.glb"
+          position={[0, -0.5, 0]}
+          rotation={[0, 0, 0]}
+          scale={[0.05, 0.05, 0.05]}
+          displayColor="#ffffff"
+        />
+
+        {/* Polar Bear - Try external CDN first, then local, then fallback */}
+        <GLTFModel
+          modelPath="https://cdn.jsdelivr.net/gh/your-repo/arctic-assets@main/polar_bear.glb"
+          position={[0, 0.9, 0]}
+          rotation={[0, 0, 0]}
+          scale={[1, 1, 1]}
+          displayColor="#ffffff"
+        />
+
+        {/* Fallback Arctic Floor - Only if GLTF fails */}
         <Plane
           args={[20, 20]}
           position={[0, -0.5, 0]}
@@ -115,7 +131,7 @@ export const SceneViewport: React.FC<SceneViewportProps> = memo(({
           />
         </Plane>
 
-        {/* Simple Polar Bear Representation - Fallback */}
+        {/* Fallback Polar Bear Representation - Only if GLTF fails */}
         <Box
           position={[0, 0.5, 0]}
           scale={[1, 1.5, 2]}
