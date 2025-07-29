@@ -28,6 +28,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  // Docker optimization
+  output: 'standalone',
+  poweredByHeader: false,
 }
 
 export default nextConfig
