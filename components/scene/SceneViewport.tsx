@@ -97,27 +97,51 @@ export const SceneViewport: React.FC<SceneViewportProps> = memo(({
 
         {/* Environment component for background and global illumination */}
         <Environment 
-          files="/assets/snowenvrion_1k.hdr"
+          preset="sunset"
           background 
         />
 
-        {/* Arctic Terrain Floor */}
-        <GLTFModel
-          modelPath="/assets/arctic_terrain1.glb"
+        {/* Simple Arctic Floor - Fallback when assets are missing */}
+        <Plane
+          args={[20, 20]}
           position={[0, -0.5, 0]}
-          rotation={[0, 0, 0]}
-          scale={[0.05, 0.05, 0.05]}
-          displayColor="#ffffff"
-        />
+          rotation={[-Math.PI / 2, 0, 0]}
+          receiveShadow
+        >
+          <meshStandardMaterial 
+            color="#e0f2fe" 
+            roughness={0.8}
+            metalness={0.1}
+          />
+        </Plane>
 
-        {/* Polar Bear Model */}
-        <GLTFModel
-          modelPath="/assets/polar_bear.glb"
-          position={[0, 0.9, 0]}
-          rotation={[0, 0, 0]}
-          scale={[0.5, 0.5, 0.5]}
-          displayColor="#ffffff"
-        />
+        {/* Simple Polar Bear Representation - Fallback */}
+        <Box
+          position={[0, 0.5, 0]}
+          scale={[1, 1.5, 2]}
+          castShadow
+          receiveShadow
+        >
+          <meshStandardMaterial 
+            color="#f8fafc" 
+            roughness={0.9}
+            metalness={0.1}
+          />
+        </Box>
+        
+        {/* Bear Head */}
+        <Sphere
+          position={[0, 1.5, 1]}
+          scale={[0.8, 0.8, 0.8]}
+          castShadow
+          receiveShadow
+        >
+          <meshStandardMaterial 
+            color="#f8fafc" 
+            roughness={0.9}
+            metalness={0.1}
+          />
+        </Sphere>
 
         {/* Enhanced Grid Helper with jungle colors */}
         <Grid

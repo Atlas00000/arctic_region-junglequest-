@@ -4,10 +4,12 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'JungleQuest - 3D Animal Explorer',
-  description: 'Explore amazing animals in 3D! Learn about wildlife through interactive models, sounds, and fun facts in our jungle-themed educational platform.',
-  generator: 'JungleQuest',
-  keywords: 'animals, 3D, education, jungle, wildlife, interactive, kids, learning',
+  title: 'Arctic Life - Polar Wildlife Explorer',
+  description: 'Explore amazing polar animals in 3D! Learn about Arctic wildlife through interactive models, sounds, and fun facts in our educational platform.',
+  generator: 'Arctic Life',
+  keywords: 'arctic, polar bear, 3D, education, wildlife, interactive, kids, learning',
+  viewport: 'width=device-width, initial-scale=1',
+  robots: 'index, follow',
 }
 
 export default function RootLayout({
