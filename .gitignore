@@ -25,3 +25,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large 3D assets
+public/assets/*.glb
+public/assets/*.hdr
+public/assets/*.gltf
+
+# macOS
+.DS_Store
+**/.DS_Store
